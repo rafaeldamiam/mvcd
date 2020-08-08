@@ -5,7 +5,7 @@ function pegarTodosUsuarios() {
     $sql = "SELECT * FROM usuario";
     $resultado = $cnx->query($sql);
     $usuarios = array();
-    while ($col = $resultado->fetchArray()) {
+    while ($col = $resultado->fetchArray(SQLITE3_ASSOC)) {
 		$usuarios[] = $col;
 	}
     return $usuarios;
@@ -15,7 +15,7 @@ function pegarUsuarioPorId($id) {
     $cnx = conn();
     $sql = "SELECT * FROM usuario WHERE id = '$id'";
     $resultado = $cnx->query($sql);
-    while ($col = $resultado->fetchArray()) {
+    while ($col = $resultado->fetchArray(SQLITE3_ASSOC)) {
 		$usuario = $col;
 	}
     return $usuario;
@@ -54,7 +54,7 @@ function pegarUsuarioPorEmailSenha($email, $senha) {
     $cnx = conn();
     $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
     $resultado = $cnx->query($sql);
-    while ($col = $resultado->fetchArray()) {
+    while ($col = $resultado->fetchArray(SQLITE3_ASSOC)) {
 		$usuario = $col;
 	}
     return $usuario;
