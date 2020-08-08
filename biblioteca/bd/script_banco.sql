@@ -3,7 +3,7 @@ CREATE TABLE usuario(
   nome VARCHAR(100) NOT NULL,
   senha VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
-  --papéis: 'user' e 'admin'
+  --papéis: 'user', 'admin' e 'anon' p/ usuários não logados
   papel VARCHAR(100) NOT NULL DEFAULT 'user'
 );
 
